@@ -277,3 +277,64 @@ Now that the behavior of MyBatis is configured with the above configuration elem
 ```
 
 # Mapper XML Files
+
+
+
+The Mapper XML files have only a few first class elements (in the order that they should be defined):
+
+- `cache` – Configuration of the cache for a given namespace.
+- `cache-ref` – Reference to a cache configuration from another namespace.
+- `resultMap` – The most complicated and powerful element that describes how to load your objects from the database result sets.
+- `parameterMap` – Deprecated! Old-school way to map parameters. Inline parameters are preferred and this element may be removed in the future. Not documented here.
+- `sql` – A reusable chunk of SQL that can be referenced by other statements.
+- `insert` – A mapped INSERT statement.
+- `update` – A mapped UPDATE statement.
+- `delete` – A mapped DELETE statement.
+- `select` – A mapped SELECT statement.
+
+```
+<select id="selectPerson" parameterType="int" resultType="hashmap">
+  SELECT * FROM PERSON WHERE ID = #{id}
+</select>
+
+<insert id="insertAuthor">
+  insert into Author (id,username,password,email,bio)
+  values (#{id},#{username},#{password},#{email},#{bio})
+</insert>
+
+<update id="updateAuthor">
+  update Author set
+    username = #{username},
+    password = #{password},
+    email = #{email},
+    bio = #{bio}
+  where id = #{id}
+</update>
+
+<delete id="deleteAuthor">
+  delete from Author where id = #{id}
+</delete>
+```
+
+```
+<insert id="insertAuthor" useGeneratedKeys="true"
+    keyProperty="id">
+  insert into Author (username,password,email,bio)
+  values (#{username},#{password},#{email},#{bio})
+</insert>
+```
+
+```
+<insert id="insertAuthor" useGeneratedKeys="true"
+    keyProperty="id">
+  insert into Author (username, password, email, bio) values
+  <foreach item="item" collection="list" separator=",">
+    (#{item.username}, #{item.password}, #{item.email}, #{item.bio})
+  </foreach>
+</insert>
+```
+
+## sql
+
+
+
