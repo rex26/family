@@ -336,5 +336,44 @@ The Mapper XML files have only a few first class elements (in the order that the
 
 ## sql
 
+This element can be used to define a reusable fragment of SQL code that can be included in other statements. It can be statically (during load phase) parametrized. Different property values can vary in include instances. For example: 
 
+```
+<sql id="userColumns"> ${alias}.id,${alias}.username,${alias}.password </sql>
+```
 
+The SQL fragment can then be included in another statement, for example:
+
+```
+<select id="selectUsers" resultType="map">
+  select
+    <include refid="userColumns"><property name="alias" value="t1"/></include>,
+    <include refid="userColumns"><property name="alias" value="t2"/></include>
+  from some_table t1
+    cross join some_table t2
+</select>
+```
+
+Property value can be also used in include refid attribute or property values inside include clause, for example: 
+
+```
+<sql id="sometable">
+  ${prefix}Table
+</sql>
+
+<sql id="someinclude">
+  from
+    <include refid="${include_target}"/>
+</sql>
+
+<select id="select" resultType="map">
+  select
+    field1, field2, field3
+  <include refid="someinclude">
+    <property name="prefix" value="Some"/>
+    <property name="include_target" value="sometable"/>
+  </include>
+</select>
+```
+
+## Parameters
