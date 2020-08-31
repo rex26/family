@@ -8,9 +8,25 @@ version '1.0-SNAPSHOT'
 sourceCompatibility = 1.8
 
 repositories {
+    maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+    maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' }
+    maven { url 'http://maven.aliyun.com/nexus/content/repositories/google' }
+    maven { url 'http://maven.aliyun.com/nexus/content/repositories/gradle-plugin' }
+    mavenLocal()
     mavenCentral()
+
+    //jcenter(){url 'http://jcenter.bintray.com/'}
+    google()
+    jcenter()
+    maven { url 'https://jitpack.io' }
+    maven { url 'http://oss.jfrog.org/artifactory/oss-snapshot-local/' }
+
+//        flatDir { dirs 'libs' }
 }
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
+    implementation 'mysql:mysql-connector-java:8.0.21'
+    implementation 'org.mybatis:mybatis:3.5.0'
+
 }
