@@ -45,3 +45,5 @@ MappedStatement就是用来存放我们SQL映射文件中的信息包括sql语�
 
 ## 四.iBatis源码-配置信息获取
 
+![iBatis_invoke_flow.png](http://ww1.sinaimg.cn/large/9f373d78gy1gied7xi2ucj21nt2ia4qp.jpg)
+
