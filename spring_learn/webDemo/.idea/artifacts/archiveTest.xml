@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="archiveTest">
+    <output-path>$PROJECT_DIR$/out/artifacts/archiveTest</output-path>
+    <root id="archive" name="archiveTest.war">
+      <element id="artifact" artifact-name="Gradle : org.example : webDemo-1.0-SNAPSHOT.war (exploded)" />
+    </root>
+  </artifact>
+</component>
