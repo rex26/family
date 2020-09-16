@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="person" class="com.rex.ioc.basic_di.a_quickstart_set.Person">
+        <property name="name" value="我是主人"/>
+        <property name="age" value="123333"/>
+    </bean>
+
+    <bean id="cat" class="com.rex.ioc.basic_di.a_quickstart_set.Cat">
+        <property name="name" value="test-cat"/>
+        <!-- ref引用上面的person对象 -->
+        <property name="master" ref="person"/>
+    </bean>
+</beans>
