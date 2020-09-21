@@ -1,5 +1,6 @@
 package com.rex.ioc.basic_di.a_quickstart_set;
 
+import com.rex.ioc.basic_dl.a_quickstart_byname.Person;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
