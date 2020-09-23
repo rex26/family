@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="person" class="com.rex.ioc.basic_di.a_quickstart_set.Person">
+    <bean id="person" class="com.rex.ioc.basic_dl.a_quickstart_byname.Person">
         <property name="name" value="我是主人"/>
         <property name="age" value="123333"/>
     </bean>
