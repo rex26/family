@@ -12,38 +12,35 @@ public class Leaf {
     @Value("dogdog")
     private String name;
 
-    /**
-     * 1st
-     *
-     * @Autowired private Tree tree;
-     * required = false 使得如果 Tree没有添加@Component注解也不会因此抛异常退出
-     * 异常为: NoSuchBeanDefinitionException: No qualifying bean of type
+    /** 1st
      * Field injection is not recommended
-     * Inspection info: Spring Team recommends:
-     * "Always use constructor based dependency injection in your beans.
-     * Always use assertions for mandatory dependencies".
+     *       Inspection info: Spring Team recommends:
+     *       "Always use constructor based dependency injection in your beans.
+     *       Always use assertions for mandatory dependencies".
      */
-    @Autowired(required = false)
+    //
+    @Autowired
     private Tree tree;
 
-    /** 2nd
-     *
-     * private Tree tree;
-     *
-     *     @Autowired
-     *     public Leaf(Tree tree) {
-     *         this.tree = tree;
-     *     }
-     */
+    // @Autowired(required = false)
+    @Autowired
+    private NoAnnotationTree noAnnotationTree;
 
-    /** 3rd
-     *
-     * private Tree tree;
-     *
-     *     @Autowired
-     *     public void setPerson(Tree tree) {
-     *         this.tree = tree;
-     *     }
+    /**
+     * 2nd
+     * @param tree
      */
+    @Autowired
+    public Leaf(Tree tree) {
+        this.tree = tree;
+    }
 
+    /**
+     * 3rd
+     * @param tree
+     */
+    @Autowired
+    public void setTree(Tree tree) {
+        this.tree = tree;
+    }
 }
