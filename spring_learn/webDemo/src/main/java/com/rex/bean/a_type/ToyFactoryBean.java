@@ -6,6 +6,10 @@ public class ToyFactoryBean implements FactoryBean<Toy> {
 
     private Child child;
 
+    public ToyFactoryBean() {
+        System.out.println("ToyFactoryBean 初始化了。。。");
+    }
+
     @Override
     public Toy getObject() throws Exception {
         switch (child.getWantToy()) {

@@ -19,6 +19,12 @@ public class BeanTypeConfiguration {
         return new Child();
     }
 
+    // 多个Ball对象
+    /*@Bean
+    public Toy ball() {
+        return new Ball("ball");
+    }*/
+
     @Bean
     public ToyFactoryBean toyFactory() {
         ToyFactoryBean toyFactory = new ToyFactoryBean();
