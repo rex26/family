@@ -1,4 +1,4 @@
-package com.linkedbear.spring.programmatic;
+package com.linkedbear.spring.programmatic.bean;
 
 import lombok.Getter;
 import lombok.Setter;

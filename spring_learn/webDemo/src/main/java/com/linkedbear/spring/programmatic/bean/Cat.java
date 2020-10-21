@@ -1,4 +1,4 @@
-package com.linkedbear.spring.programmatic;
+package com.linkedbear.spring.programmatic.bean;
 
 public class Cat extends Animal {
 

@@ -1,7 +1,9 @@
 package com.linkedbear.spring.programmatic;
 
+import com.linkedbear.spring.programmatic.bean.Cat;
+import com.linkedbear.spring.programmatic.bean.Dog;
+import com.linkedbear.spring.programmatic.bean.Person;
 import org.springframework.beans.factory.config.BeanDefinition;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
